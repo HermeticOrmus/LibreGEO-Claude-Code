@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{PAGE_URL}}#article",
+  "headline": "{{HEADLINE}}",
+  "description": "{{DESCRIPTION}}",
+  "url": "{{PAGE_URL}}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{IMAGE_URL}}",
+    "width": {{IMAGE_WIDTH}},
+    "height": {{IMAGE_HEIGHT}}
+  },
+  "datePublished": "{{DATE_PUBLISHED}}",
+  "dateModified": "{{DATE_MODIFIED}}",
+  "author": {
+    "@type": "Person",
+    "@id": "{{AUTHOR_URL}}#person",
+    "name": "{{AUTHOR_NAME}}",
+    "url": "{{AUTHOR_URL}}",
+    "sameAs": [
+      "{{AUTHOR_LINKEDIN}}",
+      "{{AUTHOR_TWITTER}}"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{SITE_URL}}#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{PAGE_URL}}"
+  },
+  "articleSection": "{{SECTION}}",
+  "keywords": "{{KEYWORDS}}",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".article-summary"]
+  }
+}

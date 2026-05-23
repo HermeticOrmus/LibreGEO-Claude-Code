@@ -1,0 +1,31 @@
+# {{SITE_NAME}}
+
+> {{ONE_LINE_DESCRIPTION}}
+
+{{ABOUT_PARAGRAPH}}
+
+## Core
+
+- [{{HOMEPAGE_TITLE}}]({{HOMEPAGE_URL}}): {{HOMEPAGE_DESCRIPTION}}
+- [About]({{ABOUT_URL}}): {{ABOUT_DESCRIPTION}}
+- [Contact]({{CONTACT_URL}}): {{CONTACT_DESCRIPTION}}
+
+## Documentation
+
+- [{{DOCS_INDEX_TITLE}}]({{DOCS_INDEX_URL}}): {{DOCS_INDEX_DESCRIPTION}}
+{{DOCS_PAGES}}
+
+## Blog / Content
+
+{{BLOG_PAGES}}
+
+## Optional
+
+- [llms-full.txt]({{LLMS_FULL_URL}}): expanded version with full page content
+- [sitemap.xml]({{SITEMAP_URL}}): machine-readable sitemap
+
+# Notes
+
+- All content licensed under {{LICENSE}} unless otherwise noted.
+- Crawl frequency: pages update at most {{UPDATE_FREQUENCY}}.
+- Preferred citation style: {{CITATION_STYLE}}.
