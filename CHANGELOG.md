@@ -8,6 +8,9 @@ All notable changes to LibreGEO-Claude-Code.
 - A public pantry in `pantry/`: a competitor map, an X mine, a people mine, and a pantry queue of Goal atoms, each with a Done-when anyone can check. `pantry/MENU.md` is generated from the queue by the kitchen's `menu.py` and names one atom as up next.
 - Two issue forms: `routing-miss` (Claude picked the wrong skill or agent, or none) and `plugin-proposal` (a new skill, agent or command), with matching labels.
 - A "Ways to contribute" section at the top of `CONTRIBUTING.md` (Menu items, routing misses, proposals, translations, sharing what you built, and the local test loop) and a Contribute section in the README.
+- Grok Build support. Grok Build reads `.claude-plugin/plugin.json` as it is, and the repo root is the plugin, so `grok plugin install HermeticOrmus/LibreGEO-Claude-Code` installs all 12 skills and 5 agents with no marketplace file. A `grok` CI job validates the plugin with `grok plugin validate`, installs it into a clean Grok home, and runs `scripts/sync-grok-manifest.py --check`, which fails if a Grok marketplace file ever appears for this single-plugin repo.
+- `./setup.sh --grok` installs through the Grok Build CLI instead of Claude Code, with the same `--only`, `--list`, and `--uninstall` options.
+- `LEDGER.md`, the kintsugi ledger: every crack the 1.0.0 release found and sealed, with its evidence, and the cracks still open.
 
 ## [1.0.0] - 2026-09-30
 
