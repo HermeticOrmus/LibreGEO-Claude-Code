@@ -162,7 +162,7 @@ The `/geo report-pdf <url>` command generates a professional, branded PDF report
 ### How It Works
 1. Run the full audit or individual analyses first
 2. Collect all scores and findings into a JSON structure
-3. Execute the PDF generator: `python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
+3. Execute the PDF generator: `python3 "${CLAUDE_SKILL_DIR}/scripts/generate_pdf_report.py" data.json GEO-REPORT.pdf`
 
 ### What the PDF Includes
 - **Cover page** with GEO score gauge visualization
