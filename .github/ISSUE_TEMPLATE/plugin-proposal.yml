@@ -1,0 +1,48 @@
+name: Plugin proposal
+description: Propose a new skill, agent or command for the libre-geo plugin.
+title: "[Proposal] "
+labels: ["plugin-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Good proposals name a real job people do in this domain, what Claude gets wrong today without it, and how anyone could check it works. Accepted proposals can become Menu items that you or someone else builds.
+  - type: input
+    id: name
+    attributes:
+      label: Working name
+      placeholder: "kebab-case, e.g. geo-hreflang"
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: The job it does
+      description: Who needs it, and what they are trying to get done.
+      placeholder: "An agency auditing a multilingual site needs to know which language versions AI engines can reach and cite."
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: What goes wrong today without it
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: A check anyone could run to see it works. For example, a prompt, the agent or skill that should answer, and what the answer must contain.
+    validations:
+      required: true
+  - type: textarea
+    id: prior
+    attributes:
+      label: Prior art
+      description: Other packs, tools or docs that do something similar, with links. The competitor map in pantry/ lists several.
+  - type: checkboxes
+    id: build
+    attributes:
+      label: Want to build it?
+      options:
+        - label: I would like to build this and open a pull request.
