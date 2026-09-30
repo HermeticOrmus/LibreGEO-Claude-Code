@@ -55,6 +55,7 @@ This isn't a prompt library. It is infrastructure for AI-search optimization tha
 ```
 LibreGEO-Claude-Code/
 ├── 12 specialized skills    # one per GEO/SEO axis
+├── 5 subagents              # parallel audit specialists the geo skill delegates to
 ├── 3 skill tiers            # beginner / intermediate / advanced
 ├── demo audits              # full sample runs on real sites (not in this release)
 ├── templates                # llms.txt, JSON-LD, report templates
@@ -209,6 +210,10 @@ Skills in this repo address both lanes, with the GEO priorities elevated.
 The skills make HTTP requests to your target site only. No data leaves your machine.
 
 ---
+
+## Acknowledgments
+
+Six of the skills and all five subagents come from [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) by Zubair Trabzada (MIT). See [NOTICE.md](NOTICE.md) for the exact list and the upstream license.
 
 ## Feedback
 

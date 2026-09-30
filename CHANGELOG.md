@@ -10,6 +10,8 @@ This release makes LibreGEO a Claude Code plugin. The 12 skills install as one p
 - `.claude-plugin/plugin.json` at the repo root (plugin `libre-geo`) and `.claude-plugin/marketplace.json` (marketplace `libre-geo`, one entry with `"source": "./"`). Install with `/plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code`, then `/plugin install libre-geo@libre-geo`. Every file stays where it was.
 - CI (`.github/workflows/validate.yml`) that validates the marketplace and plugin manifests, checks that every `SKILL.md` has `name` and `description` frontmatter, and installs the plugin into a clean config, on every push to main and every pull request.
 - A feedback issue form and a Feedback section in the README.
+- The five subagents the `geo` skill delegates to (`geo-ai-visibility`, `geo-content`, `geo-platform-analysis`, `geo-schema`, `geo-technical`) under `agents/`. The skill referenced them, but the repository did not ship them, so full audits could not fan out. They come unchanged from geo-seo-claude.
+- `NOTICE.md` and an Acknowledgments section crediting geo-seo-claude by Zubair Trabzada (MIT), plus the upstream copyright line in `LICENSE`.
 
 ### Changed
 - `setup.sh` installs through the Claude Code CLI instead of copying folders into `~/.claude/skills`. It supports `--list`, `--scope`, and `--uninstall`, still accepts `--skills-dir` (it prints a note), and names any skill folders left by the old installer, with the command to remove them.

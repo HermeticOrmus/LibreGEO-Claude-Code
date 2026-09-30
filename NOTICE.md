@@ -1,7 +1,32 @@
+# Notice
+
+LibreGEO builds on [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) by Zubair Trabzada, released under the MIT License.
+
+## Derived from geo-seo-claude
+
+Skills (adapted: routing descriptions rewritten, script paths made plugin-relative):
+
+- `skills/geo-content`
+- `skills/geo-platform-optimizer`
+- `skills/geo-report`
+- `skills/geo-report-pdf`
+- `skills/geo-schema`
+- `skills/geo-technical`
+
+Agents (included unchanged from upstream commit `26dc1d4`):
+
+- `agents/geo-ai-visibility.md`
+- `agents/geo-content.md`
+- `agents/geo-platform-analysis.md`
+- `agents/geo-schema.md`
+- `agents/geo-technical.md`
+
+## Upstream license
+
+```
 MIT License
 
-Copyright (c) 2026 Diego Bodart
-Copyright (c) 2026 Zubair Trabzada (skills and agents derived from geo-seo-claude, see NOTICE.md)
+Copyright (c) 2026 Zubair Trabzada
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,3 +45,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
