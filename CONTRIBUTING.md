@@ -2,6 +2,63 @@
 
 Bug reports, new platform support, schema additions, and regional GEO patterns are all welcome. The AI-search landscape moves fast; this repo will move with it.
 
+## Ways to contribute
+
+### Take a Menu item
+
+[`pantry/MENU.md`](pantry/MENU.md) lists the next pieces of work, each with a Done-when anyone can check, and names one as up next. The research behind it lives in [`pantry/`](pantry/). Open items are also filed as issues with the [`menu` label](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues?q=is%3Aopen+label%3Amenu), and smaller ones show up under [good first issues](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/contribute). To claim one, comment on the issue that you are taking it, then open a pull request that says `Closes #N`.
+
+### Report or fix a routing miss
+
+Every skill and agent has a `description` that tells Claude when to use it. When Claude picks the wrong one, or none, for a GEO or SEO question, open a [routing miss](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=routing-miss.yml) with the prompt you used. The fix is usually a sharper `description` in `skills/<name>/SKILL.md` or `agents/<name>.md`, which makes it a good first pull request.
+
+### Propose or build a skill or agent
+
+Open a [plugin proposal](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=plugin-proposal.yml) first, so the job it does and its Done-when are agreed before you build. This repo is one plugin, `libre-geo`, so new work goes inside it:
+
+```text
+.claude-plugin/plugin.json      the libre-geo plugin (name, version, description); update the skill count in its description
+.claude-plugin/marketplace.json the libre-geo marketplace, one entry with "source": "./"; keep its description in step with plugin.json
+skills/<name>/SKILL.md          a skill; frontmatter: name, description (what it produces and when to use it)
+agents/<name>.md                a subagent; frontmatter: name, description, allowed-tools
+```
+
+The skills are also the slash commands (`/geo-audit`, `/libre-geo:geo-audit`), so there is no `commands/` folder. Reference files a skill ships with through `${CLAUDE_SKILL_DIR}`, and credit anything derived from another project in `NOTICE.md`. A separate plugin with its own `plugins/<name>/.claude-plugin/plugin.json` and its own marketplace entry is a bigger change: say so in the proposal.
+
+### Translate
+
+The docs are English only, and AI search outside English is under-served. Translations of `QUICK_START.md` and the `beginner/`, `intermediate/` and `advanced/` guides are welcome, as `QUICK_START.<lang>.md` or `<folder>/README.<lang>.md`. Keep every command and code block identical to the English file.
+
+### Share what you built
+
+Audited a site, wrote a schema template, or wired LibreGEO into your own workflow? Post it in [Discussions](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/discussions) under Show and tell, or send it as a [feedback issue](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml).
+
+### Test your change locally
+
+Load the plugin from your clone for one session, without installing it:
+
+```bash
+claude --plugin-dir .
+```
+
+Validate the marketplace and the plugin manifest:
+
+```bash
+claude plugin validate .
+claude plugin validate .claude-plugin/plugin.json
+```
+
+Install it into a clean, throwaway config, the way a new user would, and check that your skill or agent is listed:
+
+```bash
+export CLAUDE_CONFIG_DIR=$(mktemp -d)
+claude plugin marketplace add ./
+claude plugin install libre-geo@libre-geo
+claude plugin details libre-geo@libre-geo
+```
+
+CI runs the same checks on every pull request (both validations, the `SKILL.md` frontmatter check, and the clean-config install). If this is your first contribution, the CI run waits until a maintainer approves it.
+
 ## What we accept
 
 - **Bug fixes** in any of the 12 skills
