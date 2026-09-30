@@ -219,6 +219,13 @@ Six of the skills and all five subagents come from [geo-seo-claude](https://gith
 
 Starred this? Tell us what worked and what is missing: [open a feedback issue](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml). Every piece of feedback gets an answer, and changes that come from it are credited in the release notes.
 
+## Contribute
+
+- Pick up the next piece of work from the [Menu](pantry/MENU.md): each item has a Done-when anyone can check, and the research behind it is in [`pantry/`](pantry/).
+- New here? Start with the [good first issues](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/contribute).
+- Claude picked the wrong skill? File a [routing miss](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=routing-miss.yml). Want a new skill or agent? Open a [plugin proposal](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=plugin-proposal.yml). Anything else goes in a [feedback issue](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml).
+- Show what you built in [Discussions](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/discussions). The full guide is in [CONTRIBUTING.md](CONTRIBUTING.md#ways-to-contribute).
+
 ---
 
 ## Contributing
