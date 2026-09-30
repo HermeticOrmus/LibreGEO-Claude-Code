@@ -8,12 +8,20 @@
 #   /plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code
 #   /plugin install libre-geo@libre-geo
 #
+# With --grok it installs into Grok Build through the grok CLI instead. The
+# repo root is the plugin, so there is no Grok marketplace: it is the same as
+# `grok plugin install <this checkout> --trust`. Grok asks you to trust a
+# plugin before it installs it; running this script with --grok is that
+# decision, so the script passes --trust.
+#
 # Usage:
 #   ./setup.sh                      install the libre-geo plugin
 #   ./setup.sh --list               list the plugins in this pack
 #   ./setup.sh --scope project      install for this project only (user|project|local)
 #   ./setup.sh --uninstall          remove the plugin and marketplace
 #   ./setup.sh --only libre-geo     install only the named plugins (same as the default here)
+#   ./setup.sh --grok               install into Grok Build instead of Claude Code
+#                                   (works with --only, --list, and --uninstall)
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -22,6 +30,7 @@ ONLY=""
 LIST=0
 UNINSTALL=0
 SCOPE="user"
+GROK=0
 
 usage() { awk 'NR==1{next} /^#/{sub(/^# ?/,""); print; next} {exit}' "${BASH_SOURCE[0]}"; }
 
@@ -31,6 +40,7 @@ while [[ $# -gt 0 ]]; do
     --list) LIST=1; shift ;;
     --scope) SCOPE="${2:?--scope needs user, project, or local}"; shift 2 ;;
     --uninstall) UNINSTALL=1; shift ;;
+    --grok) GROK=1; shift ;;
     --plugins-dir|--skills-dir)
       echo "note: $1 is no longer used; Claude Code manages plugin storage itself." >&2
       shift 2 ;;
@@ -39,7 +49,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-command -v claude >/dev/null 2>&1 || { echo "error: the Claude Code CLI (claude) is not on PATH. Install it first: https://docs.claude.com/en/docs/claude-code" >&2; exit 1; }
+if (( GROK )); then
+  command -v grok >/dev/null 2>&1 || { echo "error: the Grok Build CLI (grok) is not on PATH. Install it first: curl -fsSL https://x.ai/cli/install.sh | bash" >&2; exit 1; }
+else
+  command -v claude >/dev/null 2>&1 || { echo "error: the Claude Code CLI (claude) is not on PATH. Install it first: https://docs.claude.com/en/docs/claude-code" >&2; exit 1; }
+fi
 command -v jq >/dev/null 2>&1 || { echo "error: jq is required (sudo apt install jq / brew install jq)." >&2; exit 1; }
 
 MARKETPLACE="$(jq -r '.name' "$MANIFEST")"
@@ -58,6 +72,20 @@ if [[ -n "$ONLY" ]]; then
   done
 fi
 
+if (( GROK )); then
+  [[ "$SCOPE" == "user" ]] || echo "note: --scope applies to Claude Code only; Grok Build installs plugins for your user." >&2
+  # Grok Build installs the root plugin straight from this folder.
+  here="$(grok plugin list --json 2>/dev/null | jq -r --arg src "$REPO_DIR" '.[] | select(.source == $src) | .name' || true)"
+fi
+
+if (( GROK && UNINSTALL )); then
+  for p in "${SELECTED[@]}"; do
+    if grep -qx "$p" <<<"$here"; then grok plugin uninstall "$p" --confirm; fi
+  done
+  echo "Removed. Restart Grok Build to unload the plugin."
+  exit 0
+fi
+
 if (( UNINSTALL )); then
   installed="$(claude plugin list 2>/dev/null || true)"
   for p in "${SELECTED[@]}"; do
@@ -68,15 +96,21 @@ if (( UNINSTALL )); then
   exit 0
 fi
 
-if claude plugin marketplace list 2>/dev/null | grep -q "$MARKETPLACE"; then
-  claude plugin marketplace update "$MARKETPLACE"
+if (( GROK )); then
+  for p in "${SELECTED[@]}"; do
+    if grep -qx "$p" <<<"$here"; then grok plugin update "$p"; else grok plugin install "$REPO_DIR" --trust; fi
+  done
 else
-  claude plugin marketplace add "$REPO_DIR"
-fi
+  if claude plugin marketplace list 2>/dev/null | grep -q "$MARKETPLACE"; then
+    claude plugin marketplace update "$MARKETPLACE"
+  else
+    claude plugin marketplace add "$REPO_DIR"
+  fi
 
-for p in "${SELECTED[@]}"; do
-  claude plugin install "$p@$MARKETPLACE" --scope "$SCOPE"
-done
+  for p in "${SELECTED[@]}"; do
+    claude plugin install "$p@$MARKETPLACE" --scope "$SCOPE"
+  done
+fi
 
 # The pre-1.0 installer copied each skill folder into the user skills
 # directory. Claude Code loads those too, so the skills would show up twice.
@@ -96,5 +130,6 @@ if (( ${#old[@]} > 0 )); then
 fi
 
 echo
-echo "Installed ${#SELECTED[@]} plugin(s) from $MARKETPLACE. Restart Claude Code to load them."
+APP="Claude Code"; (( GROK )) && APP="Grok Build"
+echo "Installed ${#SELECTED[@]} plugin(s) from $MARKETPLACE into $APP. Restart $APP to load them."
 echo "Tell us what worked and what is missing: https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml"
