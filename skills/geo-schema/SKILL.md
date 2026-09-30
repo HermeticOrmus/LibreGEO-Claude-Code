@@ -1,6 +1,6 @@
 ---
 name: geo-schema
-description: Schema.org structured data audit and generation optimized for AI discoverability — detect, validate, and generate JSON-LD markup
+description: "Schema.org structured data audit and generation for AI discoverability: detects JSON-LD, Microdata, and RDFa, validates them, and generates JSON-LD for Organization, LocalBusiness, Article with author, Product, and other types, including sameAs and speakable. Use when the user asks about structured data, JSON-LD, rich results, or how AI systems identify their business or authors."
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, schema, structured-data, json-ld, entity-recognition, ai-discoverability]

@@ -1,6 +1,6 @@
 ---
 name: geo-technical
-description: Technical SEO audit with GEO-specific checks — crawlability, indexability, security, performance, SSR, and AI crawler access
+description: "Technical SEO audit with GEO-specific checks: crawlability, AI crawler user agents, indexability, security headers, URL structure, mobile, Core Web Vitals (INP), and server-side rendering for crawlers that do not run JavaScript, scored by category with fixes. Use when the user asks about technical SEO, site speed, rendering, or why AI crawlers see an empty page."
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, technical-seo, core-web-vitals, ssr, crawlability, security, performance]

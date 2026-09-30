@@ -1,6 +1,6 @@
 ---
 name: geo-platform-optimizer
-description: Platform-specific AI search optimization — audit and optimize for Google AI Overviews, ChatGPT, Perplexity, Gemini, and Bing Copilot individually
+description: "Per-platform AI search optimization for Google AI Overviews, ChatGPT web search, Perplexity, Gemini, and Bing Copilot: applies each platform's source-selection rules, checklist, and 0-100 readiness score, then writes a prioritized action plan. Use when the user wants to be cited on a specific AI search platform, or to compare readiness across them."
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, ai-search, platform-optimization, chatgpt, perplexity, gemini, aio]
