@@ -1,6 +1,6 @@
 ---
 name: geo-report
-description: Generate a professional, client-facing GEO report combining all audit results into a single deliverable with scores, findings, and prioritized actions
+description: "Client-facing GEO report generator that combines audit results into one Markdown deliverable with a GEO readiness score, findings, and an action plan in quick wins, medium-term, and strategic buckets. Use after an audit when the user wants a report to hand to a client or stakeholder."
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, report, client-deliverable, executive-summary, action-plan]

@@ -1,6 +1,6 @@
 ---
 name: geo-audit
-description: Full website GEO+SEO audit with parallel subagent delegation. Orchestrates a comprehensive Generative Engine Optimization audit across AI citability, platform analysis, technical infrastructure, content quality, and schema markup. Produces a composite GEO Score (0-100) with prioritized action plan.
+description: "Full-site GEO and SEO audit: discovers the site and its business type, runs citability, brand, crawler and llms.txt, content, and schema analyses as parallel subagents, and returns a composite GEO Score (0-100) with issues by severity and a prioritized action plan. Use when the user wants a complete AI search visibility audit of a website, such as a local business, SaaS, or e-commerce site."
 allowed-tools:
   - Read
   - Grep

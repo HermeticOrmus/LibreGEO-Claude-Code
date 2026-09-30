@@ -1,6 +1,6 @@
 ---
 name: geo-crawlers
-description: AI crawler access analysis. Checks robots.txt, meta tags, and HTTP headers to determine which AI crawlers can access the site. Provides a complete access map and recommendations for maximizing AI visibility while maintaining appropriate control.
+description: "AI crawler access analysis: reads robots.txt, meta robots tags, and X-Robots-Tag headers to map which AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, and others) can reach the site, and recommends an allow or block policy by crawler tier. Use when the user asks whether AI bots can crawl their site, or wants a robots.txt tuned for AI search."
 allowed-tools:
   - Read
   - Grep
