@@ -1,0 +1,22 @@
+{
+  "name": "libre-geo",
+  "version": "1.0.0",
+  "description": "GEO-first SEO for Claude Code: 12 skills that audit and improve how AI search engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews, Bing Copilot) crawl, understand, and cite a website, with Markdown and PDF client reports.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreGEO-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreGEO-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "geo",
+    "seo",
+    "ai-search",
+    "llms-txt",
+    "schema-org",
+    "citability",
+    "ai-crawlers",
+    "e-e-a-t"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "libre-geo",
+  "owner": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "metadata": {
+    "description": "GEO-first SEO for Claude Code: AI search visibility audits, citability scoring, AI crawler access, llms.txt, schema, and client-ready reports.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "libre-geo",
+      "source": "./",
+      "description": "GEO-first SEO for Claude Code: 12 skills that audit and improve how AI search engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews, Bing Copilot) crawl, understand, and cite a website, with Markdown and PDF client reports.",
+      "version": "1.0.0"
+    }
+  ]
+}
