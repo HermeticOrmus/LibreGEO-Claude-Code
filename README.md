@@ -56,7 +56,7 @@ This isn't a prompt library. It is infrastructure for AI-search optimization tha
 LibreGEO-Claude-Code/
 ├── 12 specialized skills    # one per GEO/SEO axis
 ├── 3 skill tiers            # beginner / intermediate / advanced
-├── demo audits              # full sample runs on real sites
+├── demo audits              # full sample runs on real sites (not in this release)
 ├── templates                # llms.txt, JSON-LD, report templates
 └── resources                # platform docs, glossary, references
 ```
@@ -65,7 +65,7 @@ LibreGEO-Claude-Code/
 
 ## The 12 skills
 
-Each skill is a self-contained, agent-callable module. Install once via `setup.sh`, then invoke from any Claude Code session.
+Each skill is a self-contained, agent-callable module. All 12 ship in one plugin, `libre-geo`: install it once (see [Quick start](#quick-start)), then invoke any skill from any Claude Code session. If another skill with the same name is installed, use the namespaced form, for example `/libre-geo:geo-audit`.
 
 ### Discoverability
 
@@ -108,14 +108,34 @@ Each skill is a self-contained, agent-callable module. Install once via `setup.s
 
 ## Quick start
 
+### Install from Claude Code
+
+```
+/plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code
+/plugin install libre-geo@libre-geo
+```
+
+That one plugin holds all 12 skills. From a terminal, the same thing is:
+
+```bash
+claude plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code
+claude plugin install libre-geo@libre-geo
+```
+
+### Install with setup.sh
+
+`setup.sh` registers your clone as the `libre-geo` marketplace and installs the plugin through the Claude Code CLI. `./setup.sh --list` shows what is in the pack and `./setup.sh --uninstall` removes it. It needs `claude` and `jq` on your `PATH`, and it points out skill folders left by the old copy-based installer so you can remove the duplicates.
+
 ```bash
 # Clone the repo
 git clone https://github.com/HermeticOrmus/LibreGEO-Claude-Code.git ~/projects/LibreGEO-Claude-Code
 
-# Install the 12 skills into your Claude Code config
+# Install the libre-geo plugin (all 12 skills) through the Claude Code CLI
 cd ~/projects/LibreGEO-Claude-Code
 ./setup.sh
 ```
+
+`geo-report-pdf` also needs ReportLab: `pip install reportlab`. The bundled scripts' full dependency list is in [`skills/geo/requirements.txt`](skills/geo/requirements.txt).
 
 Then in any Claude Code session:
 
@@ -153,12 +173,12 @@ You ship at scale and want repeatable patterns. Per-platform optimization, llms.
 
 ## Sample audits
 
-Real audits run with the skill bundle, included as worked examples:
+Real audits run with the skill bundle, planned as worked examples. The `demo/` folder is not in this release; the CHANGELOG tracks it under Pending.
 
 - [`demo/ormus-solutions-audit/`](demo/) — full audit of [ormus.solutions](https://ormus.solutions), all artifacts (Markdown report, PDF report, raw JSON, screenshots)
 - [`demo/public-benchmark-audit/`](demo/) — audit of a neutral public site, used as the reference for what 60–80/100 looks like in practice
 
-Both directories contain reproducible commands so you can re-run the audit and compare your delta over time.
+Each will contain reproducible commands so you can re-run the audit and compare your delta.
 
 ---
 
@@ -181,12 +201,18 @@ Skills in this repo address both lanes, with the GEO priorities elevated.
 
 ## Compatibility
 
-- **Claude Code**: 1.x+
+- **Claude Code**: a version with plugin support (`/plugin`); verified with 2.1.285
 - **Python**: 3.10+ (for `geo-report-pdf` ReportLab integration)
 - **OS**: Linux / macOS / Windows (WSL2 tested)
 - **License**: MIT
 
 The skills make HTTP requests to your target site only. No data leaves your machine.
+
+---
+
+## Feedback
+
+Starred this? Tell us what worked and what is missing: [open a feedback issue](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml). Every piece of feedback gets an answer, and changes that come from it are credited in the release notes.
 
 ---
 

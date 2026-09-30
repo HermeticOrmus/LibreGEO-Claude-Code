@@ -2,7 +2,16 @@
 
 Five minutes from clone to first audit.
 
-## 1. Clone and install
+## 1. Install
+
+Inside Claude Code:
+
+```
+/plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code
+/plugin install libre-geo@libre-geo
+```
+
+Or clone and install through the Claude Code CLI:
 
 ```bash
 git clone https://github.com/HermeticOrmus/LibreGEO-Claude-Code.git ~/projects/LibreGEO-Claude-Code
@@ -10,7 +19,7 @@ cd ~/projects/LibreGEO-Claude-Code
 ./setup.sh
 ```
 
-`setup.sh` copies the 12 skills into `~/.claude/skills/` (or wherever your Claude Code config lives). Re-run anytime to refresh.
+Either way you get the `libre-geo` plugin with all 12 skills. Restart Claude Code to load it. To pick up a newer version, run `claude plugin marketplace update libre-geo` and then `claude plugin update libre-geo@libre-geo` (or re-run `./setup.sh`).
 
 ## 2. Run your first audit
 
@@ -69,7 +78,7 @@ The PDF includes score gauges, bar charts, platform readiness visualizations, an
 | 40-59 | Visible weakness. Will be ignored by AI search for competitive queries. |
 | 0-39 | Disqualifying. Page is functionally invisible to AI search. |
 
-For context: the bundled `demo/ormus-solutions-audit/` and `demo/public-benchmark-audit/` show what scores in different bands look like in practice.
+For context: the planned `demo/ormus-solutions-audit/` and `demo/public-benchmark-audit/` will show what scores in different bands look like in practice. They are not in this release.
 
 ## Iterating
 

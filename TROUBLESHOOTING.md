@@ -1,14 +1,19 @@
 # Troubleshooting
 
-## Skill not found after running `setup.sh`
+## Skill not found after installing
 
-The installer copies skills into `~/.claude/skills/`. Verify they landed:
+The skills ship as one plugin, `libre-geo`. Verify it is installed and enabled:
 
 ```bash
-ls ~/.claude/skills/ | grep '^geo'
+claude plugin list | grep 'libre-geo@libre-geo'
+claude plugin details libre-geo@libre-geo   # lists the 12 skills
 ```
 
-You should see 12 entries. If not, re-run `setup.sh` and watch the output for `[skip]` lines indicating something pre-existing blocked the copy. Remove the conflicting directory and re-run, or run with `--skills-dir <other-path>`.
+If it is missing, run `/plugin install libre-geo@libre-geo` (or `./setup.sh`) and restart Claude Code; plugins load at session start. If a skill name collides with another installed skill, call it by its namespaced form, for example `/libre-geo:geo-audit`.
+
+## Every GEO skill shows up twice
+
+Before v1.0.0, `setup.sh` copied each skill folder into `~/.claude/skills/`. Claude Code still loads those copies, so with the plugin installed you get two of each. `./setup.sh` lists any leftover folders with the same names and prints the `rm -rf` command for them. Remove them only if they came from the old installer.
 
 ## `/geo-audit` errors out with rate-limit / 429
 
@@ -28,7 +33,7 @@ Install the Python dependency:
 pip install reportlab
 ```
 
-Or use the project-local Python via `setup.sh --with-python-deps`.
+To install every dependency the bundled scripts use: `pip install -r skills/geo/requirements.txt`.
 
 ## Audit takes forever on a large site
 

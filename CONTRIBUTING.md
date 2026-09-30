@@ -28,6 +28,8 @@ cd LibreGEO-Claude-Code
 
 Make changes, run the affected skill against a real site to verify, then submit.
 
+Before opening a PR, run `claude plugin validate .` and `claude plugin validate .claude-plugin/plugin.json`. CI runs both, checks that every `skills/*/SKILL.md` has `name` and `description` frontmatter, and installs the plugin into a clean config. Reference files that ship with a skill by `${CLAUDE_SKILL_DIR}` (Claude Code replaces it with the skill's folder), never by a path under `~/.claude`.
+
 ## Branch + PR workflow
 
 ```
