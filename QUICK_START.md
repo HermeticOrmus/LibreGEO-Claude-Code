@@ -21,6 +21,14 @@ cd ~/projects/LibreGEO-Claude-Code
 
 Either way you get the `libre-geo` plugin with all 12 skills. Restart Claude Code to load it. To pick up a newer version, run `claude plugin marketplace update libre-geo` and then `claude plugin update libre-geo@libre-geo` (or re-run `./setup.sh`).
 
+### Install in Grok Build
+
+```bash
+grok plugin install HermeticOrmus/LibreGEO-Claude-Code --trust
+```
+
+The repo root is the plugin, so there is no marketplace step. From a clone, `./setup.sh --grok` installs it from your checkout, and `grok plugin update libre-geo` picks up a newer version. `geo-report-pdf` runs its script through `${CLAUDE_SKILL_DIR}`. Grok Build 1.0.44 lists that placeholder among its skill substitutions, and the installed copy keeps the script where the path points, but the PDF step has not been run in a live Grok session yet.
+
 ## 2. Run your first audit
 
 In any Claude Code session:
