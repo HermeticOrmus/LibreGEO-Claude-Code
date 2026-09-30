@@ -24,7 +24,7 @@ Counts: open 7, in flight 0, shipped 0, parked 0, dropped 0, needs fixing 0
 |-----|-------|-------|------------|-------|-------|---------|-------|---------|
 | docs-real-flags | Docs show only options the skills read (`docs-real-flags`) | open | high | repo | 2026-09-30 | 1 | - | - |
 | faq-evidence | Source or re-weight the FAQ checks (`faq-evidence`) | open | medium | repo | 2026-09-30 | 4 | - | - |
-| geo-compare | Port the upstream `geo-compare` skill for run-over-run deltas | open | high | repo | 2026-09-30 | 2 | - | - |
+| geo-compare | Port the upstream `geo-compare` skill for run-over-run deltas | open | high | repo | 2026-09-30 | 2 | #4 | - |
 | llms-txt-evidence | Say who reads llms.txt, with sources (`llms-txt-evidence`) | open | medium | repo | 2026-09-30 | 5 | - | - |
 | market-sources | Link a source for every Market Context number (`market-sources`) | open | medium | repo | 2026-09-30 | 7 | - | - |
 | quick-start-es | Spanish QUICK_START (`quick-start-es`) | open | medium | repo | 2026-09-30 | 6 | - | - |
