@@ -123,6 +123,16 @@ claude plugin marketplace add HermeticOrmus/LibreGEO-Claude-Code
 claude plugin install libre-geo@libre-geo
 ```
 
+### Install in Grok Build
+
+Grok Build reads this plugin as it is. The repo root is the plugin, so it installs directly, with no marketplace step:
+
+```bash
+grok plugin install HermeticOrmus/LibreGEO-Claude-Code --trust
+```
+
+Grok asks you to trust a plugin before it installs it; `--trust` is that answer. `grok plugin update libre-geo` picks up a newer version. From a clone, `./setup.sh --grok` installs it from your checkout, with the same `--list` and `--uninstall` options. `geo-report-pdf` runs its script through `${CLAUDE_SKILL_DIR}`. Grok Build 1.0.44 lists that placeholder among its skill substitutions, and the installed copy keeps the script where the path points, but the PDF step has not been run in a live Grok session yet.
+
 ### Install with setup.sh
 
 `setup.sh` registers your clone as the `libre-geo` marketplace and installs the plugin through the Claude Code CLI. `./setup.sh --list` shows what is in the pack and `./setup.sh --uninstall` removes it. It needs `claude` and `jq` on your `PATH`, and it points out skill folders left by the old copy-based installer so you can remove the duplicates.
@@ -221,6 +231,7 @@ Starred this? Tell us what worked and what is missing: [open a feedback issue](h
 
 ## Contribute
 
+- Cracks we found and sealed: [LEDGER.md](LEDGER.md). The open rows are work anyone can pick up.
 - Pick up the next piece of work from the [Menu](pantry/MENU.md): each item has a Done-when anyone can check, and the research behind it is in [`pantry/`](pantry/).
 - New here? Start with the [good first issues](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/contribute).
 - Claude picked the wrong skill? File a [routing miss](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=routing-miss.yml). Want a new skill or agent? Open a [plugin proposal](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=plugin-proposal.yml). Anything else goes in a [feedback issue](https://github.com/HermeticOrmus/LibreGEO-Claude-Code/issues/new?template=feedback.yml).

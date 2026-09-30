@@ -57,7 +57,7 @@ claude plugin install libre-geo@libre-geo
 claude plugin details libre-geo@libre-geo
 ```
 
-CI runs the same checks on every pull request (both validations, the `SKILL.md` frontmatter check, and the clean-config install). If this is your first contribution, the CI run waits until a maintainer approves it.
+CI runs the same checks on every pull request (both validations, the `SKILL.md` frontmatter check, and the clean-config install). A second `grok` job validates the plugin with `grok plugin validate`, installs it into a clean Grok Build home, and checks that no `.grok-plugin/marketplace.json` exists: the repo root is the plugin, so Grok installs it directly and needs no marketplace file. If this is your first contribution, the CI run waits until a maintainer approves it.
 
 ## What we accept
 
