@@ -1,6 +1,6 @@
 {
   "name": "libre-geo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "GEO-first SEO for Claude Code: 12 skills that audit and improve how AI search engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews, Bing Copilot) crawl, understand, and cite a website, with Markdown and PDF client reports.",
   "author": {
     "name": "Diego Bodart",

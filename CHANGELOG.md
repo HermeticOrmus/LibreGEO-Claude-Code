@@ -2,7 +2,7 @@
 
 All notable changes to LibreGEO-Claude-Code.
 
-## [Unreleased]
+## [1.1.0] - 2026-09-30
 
 ### Added
 - A public pantry in `pantry/`: a competitor map, an X mine, a people mine, and a pantry queue of Goal atoms, each with a Done-when anyone can check. `pantry/MENU.md` is generated from the queue by the kitchen's `menu.py` and names one atom as up next.
